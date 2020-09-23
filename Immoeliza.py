@@ -110,12 +110,6 @@ for link in links:
         soup = BS(htmltext, 'html.parser')  # Reads inside links
         # print("hello")
 
-for tag in soup.findAll('div', attrs={'aria-label': 'Crime'}):
-            row = tag.get_text()
-            if not row:
-                row = "NA"
-            print(row)
-            area.append(row)
 
 for tag in soup.findAll('span',attrs={'class': 'Text__TextBase-sc-1i9uasc-0 fOuqJu'}):
             row = tag.get_text()
@@ -172,8 +166,8 @@ for tag in soup.findAll('div', attrs={'data-testid': 'explore-the-area-commuteTa
     page = str(count) + "_p"  # changes page,will go till page 4,total 120 links per city
     x = y + page
 data_frame = pd.DataFrame(
-    list(zip(add1, area, rent, bed, bath, floor, descp, commute, sch_crime, sugg_income, addr_link)),
-    columns=["Address", "Location", "Rent", "Bed", "Bath", "Size", "Description", "Commute", "Crime", "Income", "URL"])
+    list(zip(locality, typeofproperty, price, numberofrooms, kitchenfullyequipped, area, furnished, openfire, surface_of_the_land, Surface_area_of_the_plot_of_land, number_of_facade,swimming_pool,state_of_the_building)),
+    columns=["Locality", "Type of Property", "Price", "Number of Rooms", "Kitchen Fully Equipped", "Area", "Furnished", "Open Fire", "Surface of the Land", "Surface Area of the Plot of Land", "Number of Facade","Swimming Pool","State of the Building"])
 data_frame
 
 
