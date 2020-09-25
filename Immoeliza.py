@@ -9,9 +9,13 @@ headers = ({'User-Agent':
             'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'})
 
 #Variables
-price=[]
-typeofproperty=[]
-locality=[]
+
+price = []
+typeofproperty = []
+locality = []
+bedrooms = []
+bathrooms=[]
+area=[]
 n_pages=0
 
 #This is our loop to go through all the pages of the website
