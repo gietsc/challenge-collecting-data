@@ -17,9 +17,6 @@ headers = ({'User-Agent':
 price=[]
 typeofproperty=[]
 locality=[]
-allprice=[]
-alltypeofproperty=[]
-alllocality=[]
 
 n_pages=0
 for page in range(0,10):
