@@ -44,7 +44,7 @@ for page in range(0,2):
         if n.text.strip()!=None:
             locality.append(n.text.strip())
         else:
-            locality.append(n.text.strip())
+            locality.append(None)
 
 
     #This is our loop to append our "Address" list
