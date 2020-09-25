@@ -62,3 +62,15 @@ print(len(typeofproperty))
 print(len(bedrooms))
 print(len(bathrooms))
 print(len(area))
+
+#create a data frame
+dic={'price':price,
+     'typeofproperty':typeofproperty,
+     'locality':locality,
+     'bedrooms':bedrooms,
+     'bathrooms':bathrooms,
+     'area':area }
+
+df=pd.DataFrame(dic)
+#print(df.head())
+df.to_csv('RealStateData.csv', encoding='utf-8', index=False)
