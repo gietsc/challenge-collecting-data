@@ -1,4 +1,5 @@
 #All our packages required for the project
+import pandas as pd
 from bs4 import BeautifulSoup
 import re
 from urllib.request import urlopen, Request
