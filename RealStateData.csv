@@ -1,0 +1,16 @@
+locality,typeofproperty,price,NumberBedRooms,NumberBathrooms,HeatingType,ElectricalInspectionReport
+"Drongensesteenweg 44, 9000 Ghent",House,415000,3,1,Gas,"Available, conform"
+"Tuimelaar 7, 9930 Zomergem, Lievegem",Land,580000,0,0,None,None
+"Tuimelaar 7, 9930 Zomergem, Lievegem",Land,580000,0,0,None,None
+"Tuimelaar 7, 9930 Zomergem, Lievegem",House,580000,4,1,None,None
+"Tuimelaar 7, 9930 Zomergem, Lievegem",House,580000,4,1,None,None
+"Gentse steenweg 336, 9620 Leeuwergem, Zottegem",House,339000,3,2,Gas,"Available, conform"
+"Gentse steenweg 336, 9620 Leeuwergem, Zottegem",House,339000,3,2,Gas,"Available, conform"
+Exclusive renovated Art Deco Mansion,House,1995000,6,4,None,None
+Exclusive renovated Art Deco Mansion,House,1995000,6,4,None,None
+"Brabantdam 92 301, 9000 Ghent, Gent",Flat,439000,2,1,Gas,"Available, conform"
+"Brabantdam 92 301, 9000 Ghent, Gent",Flat,439000,2,1,Gas,"Available, conform"
+"Grote Steenweg 166A, 3454 Rummen, Geetbets",House,230000,3,1,None,None
+"Grote Steenweg 166A, 3454 Rummen, Geetbets",House,230000,3,1,None,None
+"Poorthoevestraat 14, 3550 Heusden, Heusden-Zolder",House,247500,3,1,Fuel oil,None
+"Poorthoevestraat 14, 3550 Heusden, Heusden-Zolder",House,247500,3,1,Fuel oil,None
