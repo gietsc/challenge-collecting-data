@@ -40,6 +40,21 @@ for page in range(0,2):
         locals = [i.strip() for i in local]
         locality.append(locals)
 
+    for x in html_soup.find_all('span', attrs={"class": "icon icn-dot beds"}):
+        bedding= [x.text]
+        bedrooms.append(bedding)
+            
+    for c in html_soup.find_all('span', attrs={"class": "icon icn-dot baths"}):
+        bathtub= [c.text]
+        bathrooms.append(bathtub)
+            
+    for b in html_soup.find_all('span', attrs={"class": "icon icn-dot area"}):
+        land= [b.text]
+        area.append(land)
+
 print(len(locality))
 print(len(price))
 print(len(typeofproperty))
+print(len(bedrooms))
+print(len(bathrooms))
+print(len(area))
