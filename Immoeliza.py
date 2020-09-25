@@ -34,10 +34,18 @@ for page in range(0,2):
         price.append(row)
 
     #This is our loop to append our "Property type" list
-    for elem in html_soup.find_all('span',attrs={"class":"type truncate"}):
-        type = list(elem)
-        types = [n.strip() for n in type]
-        typeofproperty.append(types)
+    #for elem in html_soup.find_all('span',attrs={"class":"type truncate"}):
+    #     type = list(elem) #here you create a nested list, this will gives an error in pandas and csv file
+     #   types = [n.strip() for n in type]
+      #  typeofproperty.append(types)
+
+    # This is our loop to append our "Address" list
+    for n in html_soup.find_all('div', attrs={"class": "address truncate"}):
+        if n.text.strip()!=None:
+            locality.append(n.text.strip())
+        else:
+            locality.append(n.text.strip())
+
 
     #This is our loop to append our "Address" list
     for n in html_soup.find_all('div',attrs={"class":"address truncate"}):
