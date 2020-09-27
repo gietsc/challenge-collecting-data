@@ -16,6 +16,7 @@ headers = ({'User-Agent':
 price = []
 type_of_property = []
 locality= []
+city= []
 bed_rooms = []
 bath_rooms = []
 area = []
@@ -40,13 +41,22 @@ for page in range(0, 2):
         #pdb.set_trace()
 
     #####################################################
-    #  "Locality list
+    #  "Postal Code" list
     ####################################################
-    for l in html_soup.find_all('div', attrs={"class": "address truncate"}):
-        if l.text.strip()!=None:
-            locality.append(l.text.strip())
+    for pc in html_soup.find_all('div', attrs={"class": "address truncate"}):
+        if pc.text.strip()!=None:
+            locality.append(re.findall(r'\d{4}', pc.text)[0])
         else:
             locality.append('None')
+
+    #####################################################
+    #  "City" list
+    ####################################################
+    for m in html_soup.find_all('div', attrs={"class": "address truncate"}):
+        if m.text.strip()!=None:
+            city.append(re.findall(r'\w+$', m.text)[0])
+        else:
+            city.append('None')
 
     #####################################################
     #  Type of property list
@@ -65,33 +75,34 @@ for page in range(0, 2):
         #     print((stat['class']))
         #     print(lst)
 
-        #####################################################
-        #  Bed rooms list
-        ####################################################
+    #####################################################
+    #  Bed rooms list
+    ####################################################
+    for x in html_soup.find_all('span', attrs={"class": "icon icn-dot beds"}):
         if ['icon', 'icn-dot', 'beds'] in lst: #we have room
-            x=html_soup.find('span', attrs={"class": "icon icn-dot beds"})
-            bed_rooms.append(x.text)
-        else:
-            bed_rooms.append(0)
 
-        #####################################################
-        #  Bath rooms list
-        ####################################################
+          bed_rooms.append((x.text)[0])
+        else:
+            bed_rooms.append("N.A")
+
+    #####################################################
+    #  Bath rooms list
+    ####################################################
+    for c in html_soup.find_all('span', attrs={"class": "icon icn-dot baths"}):
         if ['icon', 'icn-dot', 'baths'] in lst:  # we have room
-            x = html_soup.find('span', attrs={"class": "icon icn-dot baths"})
-            bath_rooms.append(x.text)
+            bath_rooms.append((c.text)[0])
         else:
-            bath_rooms.append(0)
-        #####################################################
-        #  area list
-        ####################################################
+            bath_rooms.append("N.A")
+    #####################################################
+    #  area list
+    ####################################################
+    for b in html_soup.find_all('span', attrs={"class": "icon icn-dot area"}):
         if ['icon', 'icn-dot', 'area'] in lst:  # we have room
-            x = html_soup.find('span', attrs={"class": "icon icn-dot area"})
-            area.append(x.text)
+            area.append((b.text)[0])
         else:
-            area.append(0)
+            area.append("N.A")
 
-
+print(len(city))
 print(len(locality))
 print(len(price))
 print(len(type_of_property))
@@ -100,14 +111,15 @@ print(len(bath_rooms))
 print(len(area))
 
 #create a data frame
-dic={'Price':price,
-     'Property_type':type_of_property,
+dic={'Property_type':type_of_property,
+     'City':city,
      'locality':locality,
+     'Price':price,
      'Bed_rooms':bed_rooms,
      'Bath_rooms':bath_rooms,
      'Area':area }
 
-df=pd.DataFrame(dic)
+#df=pd.DataFrame(dic)
 #print(df.head(2))
 #pdb.set_trace()
-df.to_csv('RealStateData.csv', encoding='utf-8', index=False)
+#df.to_csv('RealStateData.csv', encoding='utf-8', index=False)
