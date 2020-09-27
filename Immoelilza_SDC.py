@@ -54,7 +54,7 @@ for page in range(0, 2):
     ####################################################
     for m in html_soup.find_all('div', attrs={"class": "address truncate"}):
         if m.text.strip()!=None:
-            city.append(re.findall(r'\w+$', m.text)[0])
+            city.append(re.findall(r'\D+.?\w+$', m.text)[0])
         else:
             city.append('None')
 
@@ -115,11 +115,12 @@ dic={'Property_type':type_of_property,
      'City':city,
      'locality':locality,
      'Price':price,
-     'Bed_rooms':bed_rooms,
-     'Bath_rooms':bath_rooms,
-     'Area':area }
+     #'Bed_rooms':bed_rooms,
+     #'Bath_rooms':bath_rooms,
+     #'Area':area
+     }
 
-#df=pd.DataFrame(dic)
+df=pd.DataFrame(dic)
 #print(df.head(2))
 #pdb.set_trace()
-#df.to_csv('RealStateData.csv', encoding='utf-8', index=False)
+df.to_csv('RealStateData.csv', encoding='utf-8', index=False)
